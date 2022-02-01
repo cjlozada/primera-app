@@ -8,8 +8,8 @@ function List(props){
                 props.items.map(item =>
                 <Item
                     key={item.id}
-                    title={item.title}
                     id={item.id}
+                    title={item.title}
                     rating={item.rating} />
                 )
             }
