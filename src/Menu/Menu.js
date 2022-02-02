@@ -1,4 +1,5 @@
 import React from "react";
+import "./Menu.css";
 import PanelAdd from "../PanelAdd/PanelAdd";
 import Search from "../Search/Search";
 
@@ -14,11 +15,10 @@ class Menu extends React.Component {
     }
 
     add() {
-        this.setState({ newItemPanel: true });
+        this.setState({newItemPanel: true});
     }
 
     onCancel(e){
-        e.preventDefault();
         this.setState({newItemPanel: false});
     }
 
@@ -40,9 +40,9 @@ class Menu extends React.Component {
                 </div>
                 {
                     (this.state.newItemPanel) ?
-                        <PanelAdd oncancel={this.onCancel} onadd={this.props.onadd} />
+                        <PanelAdd oncancel={this.onCancel} onAdd={this.props.onadd} />
                         :
-                        ''
+                        <></>
                 }
 
             </div>

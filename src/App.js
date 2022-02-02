@@ -19,6 +19,10 @@ class App extends React.Component {
       ],
       copyBooks: []
     };
+
+    this.onSearch = this.onSearch.bind(this);
+    this.onAdd = this.onAdd.bind(this);
+    
   }
 
   componentDidMount() {

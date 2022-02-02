@@ -7,13 +7,33 @@ class Item extends React.Component{
         super(props);
 
         this.state = {
+            title: '',
+            rating: 1,
             stars: []
         };
     }
 
     componentDidMount(){
         this.setState({
+            id: this.props.id,
+            title: this.props.title,
+            rating: parseInt(this.props.rating),
+            stars: Array(parseInt(this.props.rating)).fill(1)
+        });
+    }
+
+    componentDidMount(){
+        this.setState({
             stars: Array(parseInt(this.props.rating)).fill(0)
+        });
+    }
+
+    onChangeRating = (e) =>{
+        const rating = parseInt(e.target.value);
+
+        this.setState({
+            rating: parseInt(e.target.value),
+            stars: Array(parseInt(e.target.value)).fill(1)
         });
     }
     
@@ -31,7 +51,7 @@ class Item extends React.Component{
                     }
                     </p>
                     Clasificación:
-                    <select value={this.props.rating}>
+                    <select value={this.props.rating} onChange={this.onChangeRating}>
                         <option value="1">1</option>
                         <option value="2">2</option>
                         <option value="3">3</option>

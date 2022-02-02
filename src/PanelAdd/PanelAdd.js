@@ -24,7 +24,7 @@ class PanelAdd extends React.Component {
         const title = this.state.title;
         const rating = this.state.rating;
 
-        this.props.onadd({title: title, rating: rating});
+        this.props.onAdd({title: title, rating: rating});
         this.props.oncancel();
     }
 
