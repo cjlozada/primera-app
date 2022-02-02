@@ -1,4 +1,5 @@
 import React from "react";
+import PanelAdd from "../PanelAdd/PanelAdd";
 import Search from "../Search/Search";
 
 function Menu(props){
@@ -17,6 +18,7 @@ function Menu(props){
                     <button className="button btn-blue">+ Añadir nuevo libro</button>
                 </div>
             </div>
+            <PanelAdd />
         </div>
     );
 }
