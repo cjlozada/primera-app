@@ -10,7 +10,9 @@ function List(props){
                     key={item.id}
                     id={item.id}
                     title={item.title}
-                    rating={item.rating} />
+                    rating={item.rating}
+                    onremove={props.onremove}
+                    onupdaterating={props.onupdaterating} />
                 )
             }
         </div>

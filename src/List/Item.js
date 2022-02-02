@@ -10,8 +10,13 @@ class Item extends React.Component{
             title: '',
             rating: 1,
             stars: []
-        };
+        }
+
+        this.onremove=this.onremove.bind(this);
+        this.onChangeRating = this.onChangeRating.bind(this);
     }
+
+
 
     componentDidMount(){
         this.setState({
@@ -22,19 +27,20 @@ class Item extends React.Component{
         });
     }
 
-    componentDidMount(){
-        this.setState({
-            stars: Array(parseInt(this.props.rating)).fill(0)
-        });
+    onremove(e){
+        alert("Va a eliminar '"+ this.props.title +"'");
+        this.props.onremove(this.props.id);
     }
 
     onChangeRating = (e) =>{
         const rating = parseInt(e.target.value);
-
         this.setState({
             rating: parseInt(e.target.value),
             stars: Array(parseInt(e.target.value)).fill(1)
         });
+
+        this.props.onupdaterating({id: this.state.id, title: this.state.title, rating: rating})
+
     }
     
     render(){
@@ -60,7 +66,7 @@ class Item extends React.Component{
                     </select>
             </div>
             <div className="actions">
-                <button>Eliminar</button>
+                <button onClick={this.onremove}>Eliminar</button>
             </div>
         </div>
     );

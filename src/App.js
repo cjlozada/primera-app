@@ -22,17 +22,19 @@ class App extends React.Component {
 
     this.onSearch = this.onSearch.bind(this);
     this.onAdd = this.onAdd.bind(this);
+    this.remove = this.remove.bind(this);
+    this.updateRating = this.updateRating.bind(this);
     
-  }
-
-  componentDidMount() {
-    this.initBooks();
   }
 
   initBooks = () => {
     this.setState((state, props) => ({
       copyBooks: [...state.books]
     }));
+  }
+
+  componentDidMount() {
+    this.initBooks();
   }
 
   onAdd = (item) => {
@@ -61,11 +63,29 @@ class App extends React.Component {
     }
   }
 
+  remove(id){
+    var temp = [...this.state.books];
+    const res = temp.filter(item => item.id != id);
+
+    this.setState({books: [...res]});
+    this.initBooks();
+  }
+
+  updateRating(item){
+    var temp = [...this.state.books];
+    const index = temp.findIndex(x => x.id === item.id);
+    temp[index].title = item.title;
+    temp[index.rating] = item.rating;
+
+    this.setState({books: [...temp]});
+    this.initBooks();
+  }
+
   render() {
     return (
       <div className="app">
         <Menu title="Primera prueba" onadd={this.onAdd} onSearch={this.onSearch} />
-        <List items={this.state.copyBooks} />
+        <List className="list" items={this.state.copyBooks} onremove={this.remove} onupdaterating={this.updateRating} />
       </div>
     );
   }
