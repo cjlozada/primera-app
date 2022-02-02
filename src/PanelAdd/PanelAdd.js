@@ -24,8 +24,8 @@ class PanelAdd extends React.Component {
         const title = this.state.title;
         const rating = this.state.rating;
 
-        this.props.onAdd({title: title, rating: rating});
-        this.props.onCancel();
+        this.props.onadd({title: title, rating: rating});
+        this.props.oncancel();
     }
 
     render() {
@@ -49,7 +49,7 @@ class PanelAdd extends React.Component {
                             </select>
                         </p>
                         <input type="submit" className="button btn-blue" value="Registrar libro" />
-                        <button onClick={this.props.onCancel} className="button btn-normal">Cancelar</button>
+                        <button onClick={this.props.oncancel} className="button btn-normal">Cancelar</button>
                     </form>
                 </div>
             </div>

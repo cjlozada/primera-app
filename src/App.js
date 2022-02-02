@@ -60,7 +60,7 @@ class App extends React.Component {
   render() {
     return (
       <div className="app">
-        <Menu title="Primera prueba" onAdd={this.onAdd} onSearch={this.onSearch} />
+        <Menu title="Primera prueba" onadd={this.onAdd} onSearch={this.onSearch} />
         <List items={this.state.copyBooks} />
       </div>
     );

@@ -40,9 +40,9 @@ class Menu extends React.Component {
                 </div>
                 {
                     (this.state.newItemPanel) ?
-                        <PanelAdd onCancel={this.onCancel} onAdd={this.props.onAdd} />
+                        <PanelAdd oncancel={this.onCancel} onadd={this.props.onadd} />
                         :
-                        <></>
+                        ''
                 }
 
             </div>
